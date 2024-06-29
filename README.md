@@ -14,3 +14,7 @@ This tool transforms your input into various playful or humorous _dialects_, eac
 - **Enchantment Table**: Converts text into the mystical script seen on the Enchantment Table in popular games, adding a magical or arcane flair.
 
 - **Morse Code**: Encodes messages into Morse code, using a series of dots and dashes to represent letters and numbers, tapping into a classic form of long-distance communication.
+
+# Planned speaks
+- [ ] **Brainrot**: Use Tiktok brainrot slang to give the maximum brain damage.
+- [ ] **Shakespeare**: Incorporates archaic language and poetic elements to mimic the style of William Shakespeare's plays. This can add a dramatic or sophisticated flair to the text.
