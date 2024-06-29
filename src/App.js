@@ -2,6 +2,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
 import emojiData from './emoji.json';
 import fuzzysort from 'fuzzysort';
+import morse from 'morse';
+import Enchant from 'enchantment-table';
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -53,6 +55,29 @@ function App() {
           .replace(/N([aeiou])/g, 'Ny$1')
           .replace(/ove/gi, 'uv')
           .replace(/OVE/g, 'UV');
+      case 'encryption':
+        // shuffle all letters of each word except the first and last letters
+        return inputText.split(' ').map(word => {
+          if (word.length <= 2) return word;
+          const shuffledWord = word.split('').slice(1, -1).sort(() => Math.random() - 0.5).join('');
+          return word[0] + shuffledWord + word[word.length - 1];
+        }).join(' ');
+      case 'leetspeak':
+        return inputText
+          .replace(/a/gi, '4')
+          .replace(/e/gi, '3')
+          .replace(/i/gi, '1')
+          .replace(/o/gi, '0')
+          .replace(/s/gi, '5')
+          .replace(/t/gi, '7')
+          .replace(/b/gi, '8')
+          .replace(/g/gi, '9')
+          .replace(/l/gi, '1')
+          .replace(/z/gi, '2');
+      case 'morse':
+        return morse.encode(inputText);
+      case 'enchantmenttable':
+        return Enchant.translate(inputText);
       default:
         return inputText;
     }
@@ -65,7 +90,6 @@ function App() {
       textArea.style.height = textArea.scrollHeight + 'px';
     });
   }, [transformText]);
-
 
   return (
     <div className="App">
@@ -80,6 +104,10 @@ function App() {
           <option value="sarcasm">Sarcasm</option>
           <option value="emoji">Emoji</option>
           <option value="uwu">UwU</option>
+          <option value="encryption">Eycpnroitn</option>
+          <option value="leetspeak">1337 5p34k</option>
+          <option value="morse">-- --- .-. ... .</option>
+          <option value="enchantmenttable">ᒷリᓵ⍑ᔑリℸᒲᒷリℸ ℸᔑʖꖎᒷ</option>
           {/* Add more options for different transformations as needed */}
         </select>
         <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
