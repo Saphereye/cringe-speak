@@ -43,9 +43,9 @@ function App() {
       case 'uwu':
         return inputText
           .toLowerCase()
-          .replace(/y(?=[a-zA-Z])/, "y-y")
-          .replace(/s(?=[a-zA-Z])/, "s-s")
-          .replace(/w(?=[a-zA-Z])/, "w-w")
+          .replace(/\by(?=[a-zA-Z])/, "y-y")
+          .replace(/\bs(?=[a-zA-Z])/, "s-s")
+          .replace(/\bw(?=[a-zA-Z])/, "w-w")
           .replace(/r(?=[a-zA-Z])|l/gi, 'w')
           .replace(/or/gi, 'ow')
           .replace(/R(?=[a-zA-Z])|L/g, 'W')
